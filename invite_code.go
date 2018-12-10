@@ -20,7 +20,7 @@ func GetInviteCode(userId uint64) (invitecode string) {
 func GetUserId(inviteCode string) (uint64, error) {
 	userid := uint64(bases.FromBase(inviteCode, 58)) - BASEID
 	if userid < 0 {
-		return -1, errors.New("invalid invite code")
+		return 0, errors.New("invalid invite code")
 	}
 	return userid, nil
 }
